@@ -67,4 +67,4 @@ OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
 @end
 
-void PerformTarget(id target, SEL aSelector, id object1, id object2);
+void PerformSelectorWithTarget(id target, SEL aSelector, id object1, id object2);

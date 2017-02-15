@@ -51,7 +51,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MACollectionViewCellSource *cellSource = [self cellSourceAtIndexPath:indexPath];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellSource.identifier forIndexPath:indexPath];
-    PerformTarget(cellSource.configTarget, cellSource.configSelector, cell, cellSource);
+    PerformSelectorWithTarget(cellSource.configTarget, cellSource.configSelector, cell, cellSource);
     return cell;
 }
 
@@ -65,13 +65,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MACollectionViewCellSource *cellSource = [self cellSourceAtIndexPath:indexPath];
-    PerformTarget(cellSource.actionTarget, cellSource.actionSelector, [tableView cellForRowAtIndexPath:indexPath], cellSource);
+    PerformSelectorWithTarget(cellSource.actionTarget, cellSource.actionSelector, [tableView cellForRowAtIndexPath:indexPath], cellSource);
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     MACollectionViewHeaderSource *headerSource = [self headerSourceInSection:section];
     UITableViewHeaderFooterView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:headerSource.identifier];
-    PerformTarget(headerSource.configTarget, headerSource.configSelector, headerView, headerSource);
+    PerformSelectorWithTarget(headerSource.configTarget, headerSource.configSelector, headerView, headerSource);
     return headerView;
 }
 
@@ -86,7 +86,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     MACollectionViewFooterSource *footerSource = [self footerSourceInSection:section];
     UITableViewHeaderFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:footerSource.identifier];
-    PerformTarget(footerSource.configTarget, footerSource.configSelector, footerView, footerSource);
+    PerformSelectorWithTarget(footerSource.configTarget, footerSource.configSelector, footerView, footerSource);
     return footerView;
 }
 

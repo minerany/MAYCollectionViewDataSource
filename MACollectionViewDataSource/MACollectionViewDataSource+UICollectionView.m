@@ -50,7 +50,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MACollectionViewCellSource *cellSource = [self cellSourceAtIndexPath:indexPath];
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellSource.identifier forIndexPath:indexPath];
-    PerformTarget(cellSource.configTarget, cellSource.configSelector, cell, cellSource);
+    PerformSelectorWithTarget(cellSource.configTarget, cellSource.configSelector, cell, cellSource);
     return cell;
 }
 
@@ -64,7 +64,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     MACollectionViewCellSource *cellSource = [self cellSourceAtIndexPath:indexPath];
-    PerformTarget(cellSource.actionTarget, cellSource.actionSelector, [collectionView cellForItemAtIndexPath:indexPath], cellSource);
+    PerformSelectorWithTarget(cellSource.actionTarget, cellSource.actionSelector, [collectionView cellForItemAtIndexPath:indexPath], cellSource);
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
@@ -72,14 +72,14 @@
 
         MACollectionViewHeaderSource *headerSource = [self headerSourceInSection:indexPath.section];
         UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:headerSource.identifier forIndexPath:indexPath];
-        PerformTarget(headerSource.configTarget, headerSource.configSelector, headerView, headerSource);
+        PerformSelectorWithTarget(headerSource.configTarget, headerSource.configSelector, headerView, headerSource);
         return headerView;
 
     } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
 
         MACollectionViewFooterSource *footerSource = [self footerSourceInSection:indexPath.section];
         UICollectionReusableView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:footerSource.identifier forIndexPath:indexPath];
-        PerformTarget(footerSource.configTarget, footerSource.configSelector, footerView, footerSource);
+        PerformSelectorWithTarget(footerSource.configTarget, footerSource.configSelector, footerView, footerSource);
         return footerView;
 
     }
