@@ -10,13 +10,13 @@
 #import "MACollectionViewProxy.h"
 #import "MAUtilities.h"
 
-@interface UICollectionView (TableViewProxy)
+@interface UICollectionView (CollectionViewProxy)
 
 @property(nonatomic, strong) MACollectionViewProxy *ma_collectionViewProxy;
 
 @end
 
-@implementation UICollectionView (TableViewProxy)
+@implementation UICollectionView (CollectionViewProxy)
 
 - (void)setMa_collectionViewProxy:(MACollectionViewProxy *)ma_collectionViewProxy {
     self.delegate = (id <UICollectionViewDelegate>) ma_collectionViewProxy;
