@@ -66,3 +66,5 @@ OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 - (instancetype)initWithWeakObject:(id)weakObject;
 
 @end
+
+void PerformTarget(id target, SEL aSelector, id object1, id object2);

@@ -13,13 +13,3 @@
 @interface SecondViewController : UIViewController
 
 @end
-
-@interface MACollectionViewDataSourceManager : NSObject
-
-+ (instancetype)defaultManager;
-
-- (void)addDataSource:(MACollectionViewDataSource *)dataSource;
-
-- (void)removeDataSource:(MACollectionViewDataSource *)dataSource;
-
-@end

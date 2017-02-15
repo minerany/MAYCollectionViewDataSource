@@ -16,23 +16,19 @@
 
 @interface MACollectionViewCellSource (UICollectionView)
 
-@property(nonatomic, copy) void (^configCollectionViewCellBlock)(__kindof UICollectionViewCell *cell, __kindof MACollectionViewCellSource *source);
 @property(nonatomic, copy) CGSize (^cellSize)(NSIndexPath *indexPath, __kindof MACollectionViewCellSource *source);
-@property(nonatomic, copy) void (^performCollectionViewCellActionBlock)(__kindof UICollectionViewCell *cell, __kindof MACollectionViewCellSource *source);
 
 
 @end
 
 @interface MACollectionViewHeaderSource (UICollectionView)
 
-@property(nonatomic, copy) void (^configCollectionViewHeaderBlock)(__kindof UICollectionReusableView *headerView, __kindof MACollectionViewHeaderSource *source);
 @property(nonatomic, copy) CGSize (^headerSize)(NSInteger section, __kindof MACollectionViewHeaderSource *source);
 
 @end
 
 @interface MACollectionViewFooterSource (UICollectionView)
 
-@property(nonatomic, copy) void (^configCollectionViewFooterBlock)(__kindof UICollectionReusableView *footerView, __kindof MACollectionViewFooterSource *source);
 @property(nonatomic, copy) CGSize (^footerSize)(NSInteger section, __kindof MACollectionViewFooterSource *source);
 
 @end

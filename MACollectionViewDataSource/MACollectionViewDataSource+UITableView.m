@@ -51,9 +51,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MACollectionViewCellSource *cellSource = [self cellSourceAtIndexPath:indexPath];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellSource.identifier forIndexPath:indexPath];
-    if (cellSource.configTableViewCellBlock) {
-        cellSource.configTableViewCellBlock(cell, cellSource);
-    }
+    PerformTarget(cellSource.configTarget, cellSource.configSelector, cell, cellSource);
     return cell;
 }
 
@@ -67,17 +65,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MACollectionViewCellSource *cellSource = [self cellSourceAtIndexPath:indexPath];
-    if (cellSource.performTableViewCellActionBlock) {
-        cellSource.performTableViewCellActionBlock([tableView cellForRowAtIndexPath:indexPath], cellSource);
-    }
+    PerformTarget(cellSource.actionTarget, cellSource.actionSelector, [tableView cellForRowAtIndexPath:indexPath], cellSource);
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     MACollectionViewHeaderSource *headerSource = [self headerSourceInSection:section];
     UITableViewHeaderFooterView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:headerSource.identifier];
-    if (headerSource.configTableViewHeaderBlock) {
-        headerSource.configTableViewHeaderBlock(headerView, headerSource);
-    }
+    PerformTarget(headerSource.configTarget, headerSource.configSelector, headerView, headerSource);
     return headerView;
 }
 
@@ -92,9 +86,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     MACollectionViewFooterSource *footerSource = [self footerSourceInSection:section];
     UITableViewHeaderFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:footerSource.identifier];
-    if (footerSource.configTableViewFooterBlock) {
-        footerSource.configTableViewFooterBlock(footerView, footerSource);
-    }
+    PerformTarget(footerSource.configTarget, footerSource.configSelector, footerView, footerSource);
     return footerView;
 }
 
@@ -111,25 +103,13 @@
 @implementation MACollectionViewCellSource (UITableView)
 
 MASynthesize(copy,
-        void(^)(__kindof UITableViewCell *cell, __kindof MACollectionViewCellSource *source),
-        configTableViewCellBlock, setConfigTableViewCellBlock);
-
-MASynthesize(copy,
         CGFloat(^)(NSIndexPath * indexPath,
         __kindof MACollectionViewCellSource *source),
         cellHeight, setCellHeight);
 
-MASynthesize(copy,
-        void(^)(__kindof UITableViewCell *cell, __kindof MACollectionViewCellSource *source),
-        performTableViewCellActionBlock, setPerformTableViewCellActionBlock)
-
 @end
 
 @implementation MACollectionViewHeaderSource (UITableView)
-
-MASynthesize(copy,
-        void(^)(__kindof UITableViewHeaderFooterView *headerView, __kindof MACollectionViewHeaderSource *source),
-        configTableViewHeaderBlock, setConfigTableViewHeaderBlock);
 
 MASynthesize(copy,
         CGFloat(^)(NSInteger
@@ -140,10 +120,6 @@ MASynthesize(copy,
 @end
 
 @implementation MACollectionViewFooterSource (UITableView)
-
-MASynthesize(copy,
-        void(^)(__kindof UITableViewHeaderFooterView *footerView, __kindof MACollectionViewFooterSource *source),
-        configTableViewFooterBlock, setConfigTableViewFooterBlock);
 
 MASynthesize(copy,
         CGFloat(^)(NSInteger

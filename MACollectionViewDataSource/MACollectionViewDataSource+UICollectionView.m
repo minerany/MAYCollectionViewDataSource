@@ -7,7 +7,6 @@
 //
 
 #import "MACollectionViewDataSource+UICollectionView.h"
-#import <objc/runtime.h>
 #import "MACollectionViewProxy.h"
 #import "MAUtilities.h"
 
@@ -51,9 +50,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MACollectionViewCellSource *cellSource = [self cellSourceAtIndexPath:indexPath];
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellSource.identifier forIndexPath:indexPath];
-    if (cellSource.configCollectionViewCellBlock) {
-        cellSource.configCollectionViewCellBlock(cell, cellSource);
-    }
+    PerformTarget(cellSource.configTarget, cellSource.configSelector, cell, cellSource);
     return cell;
 }
 
@@ -67,9 +64,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     MACollectionViewCellSource *cellSource = [self cellSourceAtIndexPath:indexPath];
-    if (cellSource.performCollectionViewCellActionBlock) {
-        cellSource.performCollectionViewCellActionBlock([collectionView cellForItemAtIndexPath:indexPath], cellSource);
-    }
+    PerformTarget(cellSource.actionTarget, cellSource.actionSelector, [collectionView cellForItemAtIndexPath:indexPath], cellSource);
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
@@ -77,18 +72,14 @@
 
         MACollectionViewHeaderSource *headerSource = [self headerSourceInSection:indexPath.section];
         UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:headerSource.identifier forIndexPath:indexPath];
-        if (headerSource.configCollectionViewHeaderBlock) {
-            headerSource.configCollectionViewHeaderBlock(headerView, headerSource);
-        }
+        PerformTarget(headerSource.configTarget, headerSource.configSelector, headerView, headerSource);
         return headerView;
 
     } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
 
         MACollectionViewFooterSource *footerSource = [self footerSourceInSection:indexPath.section];
         UICollectionReusableView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:footerSource.identifier forIndexPath:indexPath];
-        if (footerSource.configCollectionViewFooterBlock) {
-            footerSource.configCollectionViewFooterBlock(footerView, footerSource);
-        }
+        PerformTarget(footerSource.configTarget, footerSource.configSelector, footerView, footerSource);
         return footerView;
 
     }
@@ -116,25 +107,13 @@
 @implementation MACollectionViewCellSource (UICollectionView)
 
 MASynthesize(copy,
-        void(^)(__kindof UICollectionViewCell *cell, __kindof MACollectionViewCellSource *source),
-        configCollectionViewCellBlock, setConfigCollectionViewCellBlock);
-
-MASynthesize(copy,
         CGSize(^)(NSIndexPath * indexPath,
         __kindof MACollectionViewCellSource *source),
         cellSize, setCellSize);
 
-MASynthesize(copy,
-        void(^)(__kindof UICollectionViewCell *cell, __kindof MACollectionViewCellSource *source),
-        performCollectionViewCellActionBlock, setPerformCollectionViewCellActionBlock)
-
 @end
 
 @implementation MACollectionViewHeaderSource (UICollectionView)
-
-MASynthesize(copy,
-        void(^)(__kindof UICollectionReusableView *headerView, __kindof MACollectionViewHeaderSource *source),
-        configCollectionViewHeaderBlock, setConfigCollectionViewHeaderBlock);
 
 MASynthesize(copy,
         CGSize(^)(NSInteger
@@ -145,10 +124,6 @@ MASynthesize(copy,
 @end
 
 @implementation MACollectionViewFooterSource (UICollectionView)
-
-MASynthesize(copy,
-        void(^)(__kindof UICollectionReusableView *footerView, __kindof MACollectionViewFooterSource *source),
-        configCollectionViewFooterBlock, setConfigCollectionViewFooterBlock);
 
 MASynthesize(copy,
         CGSize(^)(NSInteger

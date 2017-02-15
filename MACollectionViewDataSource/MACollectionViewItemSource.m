@@ -16,9 +16,19 @@
     return source;
 }
 
+- (void)setTarget:(id)target configSelector:(SEL)configSelector {
+    _configTarget = target;
+    _configSelector = configSelector;
+}
+
 @end
 
 @implementation MACollectionViewCellSource
+
+- (void)setTarget:(id)target actionSelector:(SEL)action {
+    _actionTarget = target;
+    _actionSelector = action;
+}
 
 @end
 

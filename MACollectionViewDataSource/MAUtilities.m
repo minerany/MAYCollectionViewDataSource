@@ -8,6 +8,13 @@
 
 #import "MAUtilities.h"
 
+void PerformTarget(id target, SEL aSelector, id object1, id object2) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [target performSelector:aSelector withObject:object1 withObject:object2];
+#pragma clang diagnostic pop
+}
+
 @implementation _MAAssociatedObjectsWeakWrapper
 
 - (instancetype)initWithWeakObject:(id)weakObject {
