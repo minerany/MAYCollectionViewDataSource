@@ -33,7 +33,7 @@ objc_getAssociatedObject(self, _MASynthesizeKey_##getter);
 #define _MASynthesize_get_copy      _MASynthesize_get_strong
 
 #define _MASynthesize_get_weak(type, getter) \
-((_MAAssociatedObjectsWeakWrapper *)objc_getAssociatedObject(self, _MASynthesizeKey_##getter)).weakObject
+((MAWeakObjectWrapper *)objc_getAssociatedObject(self, _MASynthesizeKey_##getter)).weakObject
 
 #define _MASynthesize_set_assign(type, getter) \
 objc_setAssociatedObject(self, \
@@ -56,10 +56,10 @@ OBJC_ASSOCIATION_COPY_NONATOMIC);
 #define _MASynthesize_set_weak(type, getter) \
 objc_setAssociatedObject(self, \
 _MASynthesizeKey_##getter, \
-[[_MAAssociatedObjectsWeakWrapper alloc] initWithWeakObject:getter], \
+[[MAWeakObjectWrapper alloc] initWithWeakObject:getter], \
 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
-@interface _MAAssociatedObjectsWeakWrapper : NSObject
+@interface MAWeakObjectWrapper : NSObject
 
 @property(nonatomic, weak, readonly) id weakObject;
 

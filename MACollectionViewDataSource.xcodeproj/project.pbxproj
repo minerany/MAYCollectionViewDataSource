@@ -7,46 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A21BAF91E54299700ADC2E3 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A21BAF81E54299700ADC2E3 /* SecondViewController.m */; };
-		2A98E3AB1E53461100223ED9 /* MACollectionViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A98E3AA1E53461100223ED9 /* MACollectionViewProxy.m */; };
-		2A98E3AE1E53522F00223ED9 /* MAUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A98E3AD1E53522F00223ED9 /* MAUtilities.m */; };
+		2A21BAF91E54299700ADC2E3 /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A21BAF81E54299700ADC2E3 /* ExampleViewController.m */; };
 		2AA26CEB1E52E6EB004D78EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA26CEA1E52E6EB004D78EF /* main.m */; };
 		2AA26CEE1E52E6EB004D78EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA26CED1E52E6EB004D78EF /* AppDelegate.m */; };
-		2AA26CF11E52E6EB004D78EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA26CF01E52E6EB004D78EF /* ViewController.m */; };
 		2AA26CF41E52E6EB004D78EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA26CF21E52E6EB004D78EF /* Main.storyboard */; };
 		2AA26CF61E52E6EB004D78EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA26CF51E52E6EB004D78EF /* Assets.xcassets */; };
 		2AA26CF91E52E6EB004D78EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA26CF71E52E6EB004D78EF /* LaunchScreen.storyboard */; };
-		2AA26D021E52E71F004D78EF /* MACollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA26D011E52E71F004D78EF /* MACollectionViewDataSource.m */; };
-		2AA26D051E52FB29004D78EF /* MACollectionViewItemSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA26D041E52FB29004D78EF /* MACollectionViewItemSource.m */; };
-		2AA26D0B1E532BE6004D78EF /* MACollectionViewDataSource+UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA26D0A1E532BE6004D78EF /* MACollectionViewDataSource+UITableView.m */; };
-		2AA26D0E1E533A8F004D78EF /* MACollectionViewDataSource+UICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA26D0D1E533A8F004D78EF /* MACollectionViewDataSource+UICollectionView.m */; };
+		631664E37628AAB1AA182F27 /* MACollectionViewDataSource+UICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 631669590D5AC6FE1C985354 /* MACollectionViewDataSource+UICollectionView.m */; };
+		631666CA263F67273643B197 /* MAUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166067BBBA7BEA2B684F4D /* MAUtilities.m */; };
+		63166A659A8891E2588F8DAE /* MACollectionViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6316645847E0D372E21933BC /* MACollectionViewProxy.m */; };
+		63166AD6F74FB261947BCF8D /* MACollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 631668AE9B95C5FCEB23D20D /* MACollectionViewDataSource.m */; };
+		63166BCE1E43FF46F6A0DEA6 /* MACollectionViewItemSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166C2029ABFBB6ADB5E0E7 /* MACollectionViewItemSource.m */; };
+		63166CF4FE32C8A0145AC33A /* MACollectionViewDataSource+UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 631661F606018028190825C2 /* MACollectionViewDataSource+UITableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2A21BAF71E54299700ADC2E3 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		2A21BAF81E54299700ADC2E3 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		2A98E3A91E53461100223ED9 /* MACollectionViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACollectionViewProxy.h; sourceTree = "<group>"; };
-		2A98E3AA1E53461100223ED9 /* MACollectionViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACollectionViewProxy.m; sourceTree = "<group>"; };
-		2A98E3AC1E53522F00223ED9 /* MAUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAUtilities.h; sourceTree = "<group>"; };
-		2A98E3AD1E53522F00223ED9 /* MAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAUtilities.m; sourceTree = "<group>"; };
+		2A21BAF71E54299700ADC2E3 /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
+		2A21BAF81E54299700ADC2E3 /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
 		2AA26CE61E52E6EB004D78EF /* MACollectionViewDataSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MACollectionViewDataSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA26CEA1E52E6EB004D78EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2AA26CEC1E52E6EB004D78EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2AA26CED1E52E6EB004D78EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2AA26CEF1E52E6EB004D78EF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2AA26CF01E52E6EB004D78EF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2AA26CF31E52E6EB004D78EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2AA26CF51E52E6EB004D78EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AA26CF81E52E6EB004D78EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AA26CFA1E52E6EB004D78EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2AA26D001E52E71F004D78EF /* MACollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACollectionViewDataSource.h; sourceTree = "<group>"; };
-		2AA26D011E52E71F004D78EF /* MACollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACollectionViewDataSource.m; sourceTree = "<group>"; };
-		2AA26D031E52FB29004D78EF /* MACollectionViewItemSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACollectionViewItemSource.h; sourceTree = "<group>"; };
-		2AA26D041E52FB29004D78EF /* MACollectionViewItemSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACollectionViewItemSource.m; sourceTree = "<group>"; };
-		2AA26D091E532BE6004D78EF /* MACollectionViewDataSource+UITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MACollectionViewDataSource+UITableView.h"; sourceTree = "<group>"; };
-		2AA26D0A1E532BE6004D78EF /* MACollectionViewDataSource+UITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MACollectionViewDataSource+UITableView.m"; sourceTree = "<group>"; };
-		2AA26D0C1E533A8F004D78EF /* MACollectionViewDataSource+UICollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MACollectionViewDataSource+UICollectionView.h"; sourceTree = "<group>"; };
-		2AA26D0D1E533A8F004D78EF /* MACollectionViewDataSource+UICollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MACollectionViewDataSource+UICollectionView.m"; sourceTree = "<group>"; };
+		63166067BBBA7BEA2B684F4D /* MAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAUtilities.m; sourceTree = "<group>"; };
+		631661D2F1A02CA8A65A6F9C /* MACollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACollectionViewDataSource.h; sourceTree = "<group>"; };
+		631661F606018028190825C2 /* MACollectionViewDataSource+UITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MACollectionViewDataSource+UITableView.m"; sourceTree = "<group>"; };
+		6316645847E0D372E21933BC /* MACollectionViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACollectionViewProxy.m; sourceTree = "<group>"; };
+		631665CF3B415352C9AD25AB /* MACollectionViewDataSource+UICollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MACollectionViewDataSource+UICollectionView.h"; sourceTree = "<group>"; };
+		631665E926F0950CE8D4F863 /* MAUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAUtilities.h; sourceTree = "<group>"; };
+		631666135AC8B583339F892C /* MACollectionViewItemSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACollectionViewItemSource.h; sourceTree = "<group>"; };
+		631666DE52CCA5F25AA6ECCF /* MACollectionViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACollectionViewProxy.h; sourceTree = "<group>"; };
+		631668AE9B95C5FCEB23D20D /* MACollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACollectionViewDataSource.m; sourceTree = "<group>"; };
+		631669590D5AC6FE1C985354 /* MACollectionViewDataSource+UICollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MACollectionViewDataSource+UICollectionView.m"; sourceTree = "<group>"; };
+		63166AC50CE5E7173A7C6B2D /* MACollectionViewDataSource+UITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MACollectionViewDataSource+UITableView.h"; sourceTree = "<group>"; };
+		63166C2029ABFBB6ADB5E0E7 /* MACollectionViewItemSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACollectionViewItemSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,27 +78,14 @@
 			children = (
 				2AA26CEC1E52E6EB004D78EF /* AppDelegate.h */,
 				2AA26CED1E52E6EB004D78EF /* AppDelegate.m */,
-				2AA26CEF1E52E6EB004D78EF /* ViewController.h */,
-				2AA26CF01E52E6EB004D78EF /* ViewController.m */,
-				2A21BAF71E54299700ADC2E3 /* SecondViewController.h */,
-				2A21BAF81E54299700ADC2E3 /* SecondViewController.m */,
-				2AA26D001E52E71F004D78EF /* MACollectionViewDataSource.h */,
-				2AA26D011E52E71F004D78EF /* MACollectionViewDataSource.m */,
-				2AA26D091E532BE6004D78EF /* MACollectionViewDataSource+UITableView.h */,
-				2AA26D0A1E532BE6004D78EF /* MACollectionViewDataSource+UITableView.m */,
-				2AA26D0C1E533A8F004D78EF /* MACollectionViewDataSource+UICollectionView.h */,
-				2AA26D0D1E533A8F004D78EF /* MACollectionViewDataSource+UICollectionView.m */,
-				2AA26D031E52FB29004D78EF /* MACollectionViewItemSource.h */,
-				2AA26D041E52FB29004D78EF /* MACollectionViewItemSource.m */,
-				2A98E3A91E53461100223ED9 /* MACollectionViewProxy.h */,
-				2A98E3AA1E53461100223ED9 /* MACollectionViewProxy.m */,
-				2A98E3AC1E53522F00223ED9 /* MAUtilities.h */,
-				2A98E3AD1E53522F00223ED9 /* MAUtilities.m */,
+				2A21BAF71E54299700ADC2E3 /* ExampleViewController.h */,
+				2A21BAF81E54299700ADC2E3 /* ExampleViewController.m */,
 				2AA26CF21E52E6EB004D78EF /* Main.storyboard */,
 				2AA26CF51E52E6EB004D78EF /* Assets.xcassets */,
 				2AA26CF71E52E6EB004D78EF /* LaunchScreen.storyboard */,
 				2AA26CFA1E52E6EB004D78EF /* Info.plist */,
 				2AA26CE91E52E6EB004D78EF /* Supporting Files */,
+				631665A6F21D87400DB88733 /* Classes */,
 			);
 			path = MACollectionViewDataSource;
 			sourceTree = "<group>";
@@ -112,6 +96,25 @@
 				2AA26CEA1E52E6EB004D78EF /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		631665A6F21D87400DB88733 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				631661D2F1A02CA8A65A6F9C /* MACollectionViewDataSource.h */,
+				631668AE9B95C5FCEB23D20D /* MACollectionViewDataSource.m */,
+				631666135AC8B583339F892C /* MACollectionViewItemSource.h */,
+				63166C2029ABFBB6ADB5E0E7 /* MACollectionViewItemSource.m */,
+				63166AC50CE5E7173A7C6B2D /* MACollectionViewDataSource+UITableView.h */,
+				631661F606018028190825C2 /* MACollectionViewDataSource+UITableView.m */,
+				631665CF3B415352C9AD25AB /* MACollectionViewDataSource+UICollectionView.h */,
+				631669590D5AC6FE1C985354 /* MACollectionViewDataSource+UICollectionView.m */,
+				631666DE52CCA5F25AA6ECCF /* MACollectionViewProxy.h */,
+				6316645847E0D372E21933BC /* MACollectionViewProxy.m */,
+				631665E926F0950CE8D4F863 /* MAUtilities.h */,
+				63166067BBBA7BEA2B684F4D /* MAUtilities.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,16 +189,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A21BAF91E54299700ADC2E3 /* SecondViewController.m in Sources */,
-				2AA26D0E1E533A8F004D78EF /* MACollectionViewDataSource+UICollectionView.m in Sources */,
-				2AA26CF11E52E6EB004D78EF /* ViewController.m in Sources */,
+				2A21BAF91E54299700ADC2E3 /* ExampleViewController.m in Sources */,
 				2AA26CEE1E52E6EB004D78EF /* AppDelegate.m in Sources */,
 				2AA26CEB1E52E6EB004D78EF /* main.m in Sources */,
-				2AA26D021E52E71F004D78EF /* MACollectionViewDataSource.m in Sources */,
-				2A98E3AB1E53461100223ED9 /* MACollectionViewProxy.m in Sources */,
-				2AA26D0B1E532BE6004D78EF /* MACollectionViewDataSource+UITableView.m in Sources */,
-				2A98E3AE1E53522F00223ED9 /* MAUtilities.m in Sources */,
-				2AA26D051E52FB29004D78EF /* MACollectionViewItemSource.m in Sources */,
+				631664E37628AAB1AA182F27 /* MACollectionViewDataSource+UICollectionView.m in Sources */,
+				63166CF4FE32C8A0145AC33A /* MACollectionViewDataSource+UITableView.m in Sources */,
+				63166A659A8891E2588F8DAE /* MACollectionViewProxy.m in Sources */,
+				63166AD6F74FB261947BCF8D /* MACollectionViewDataSource.m in Sources */,
+				63166BCE1E43FF46F6A0DEA6 /* MACollectionViewItemSource.m in Sources */,
+				631666CA263F67273643B197 /* MAUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

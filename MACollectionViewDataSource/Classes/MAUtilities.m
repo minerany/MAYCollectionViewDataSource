@@ -15,7 +15,7 @@ void PerformSelectorWithTarget(id target, SEL aSelector, id object1, id object2)
 #pragma clang diagnostic pop
 }
 
-@implementation _MAAssociatedObjectsWeakWrapper
+@implementation MAWeakObjectWrapper
 
 - (instancetype)initWithWeakObject:(id)weakObject {
     self = [super init];

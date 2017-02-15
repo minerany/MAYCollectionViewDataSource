@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  ExampleViewController.h
 //  MACollectionViewDataSource
 //
 //  Created by miner on 2017/2/15.
@@ -10,6 +10,6 @@
 
 @class MACollectionViewDataSource;
 
-@interface SecondViewController : UIViewController
+@interface ExampleViewController : UIViewController
 
 @end

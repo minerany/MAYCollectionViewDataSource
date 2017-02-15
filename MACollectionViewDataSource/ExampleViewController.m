@@ -1,15 +1,15 @@
 //
-//  SecondViewController.m
+//  ExampleViewController.m
 //  MACollectionViewDataSource
 //
 //  Created by miner on 2017/2/15.
 //  Copyright © 2017年 miner. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "ExampleViewController.h"
 #import "MACollectionViewDataSource+UITableView.h"
 
-@interface SecondViewController () <UITableViewDelegate>
+@interface ExampleViewController () <UITableViewDelegate>
 
 DECL_CONFIG_SEL(__configCustomCell, UITableViewCell *, MACollectionViewCellSource*)
 
@@ -17,21 +17,9 @@ DECL_ACTION_SEL(__performAction, UITableViewCell *, MACollectionViewCellSource*)
 
 @end
 
-@implementation SecondViewController {
+@implementation ExampleViewController {
     UITableView *_tableView;
 
-}
-
-- (void)__configCustomCell:(UITableViewCell *)cell cellSource:(MACollectionViewCellSource *)cellSource {
-    cell.textLabel.text = @"hello miner";
-}
-
-- (void)__performAction:(UITableViewCell *)cell cellSource:(MACollectionViewCellSource *)cellSource {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)dealloc {
-    NSLog(@"dealloc");
 }
 
 - (void)viewDidLoad {
@@ -51,6 +39,16 @@ DECL_ACTION_SEL(__performAction, UITableViewCell *, MACollectionViewCellSource*)
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+}
+
+- (void)__configCustomCell:(UITableViewCell *)cell cellSource:(MACollectionViewCellSource *)cellSource {
+    cell.textLabel.text = @"hello miner";
+}
+
+- (void)__performAction:(UITableViewCell *)cell cellSource:(MACollectionViewCellSource *)cellSource {
+    
+    NSLog(@"__performAction");
+    
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
