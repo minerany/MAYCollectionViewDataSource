@@ -1,23 +1,24 @@
 //
 //  ExampleViewController.m
-//  MACollectionViewDataSource
+//  MAYCollectionViewDataSource
 //
 //  Created by miner on 2017/2/15.
 //  Copyright © 2017年 miner. All rights reserved.
 //
 
 #import "ExampleViewController.h"
-#import "MACollectionViewDataSource+UITableView.h"
+#import "MAYCollectionViewDataSource+UITableView.h"
 
 @interface ExampleViewController () <UITableViewDelegate>
 
-DECL_CONFIG_SEL(__configCustomCell, UITableViewCell *, MACollectionViewCellSource*)
+DECL_CONFIG_SEL(__configCustomCell, UITableViewCell *, MAYCollectionViewCellSource*)
 
-DECL_ACTION_SEL(__performAction, UITableViewCell *, MACollectionViewCellSource*)
+DECL_ACTION_SEL(__performAction, UITableViewCell *, MAYCollectionViewCellSource*)
 
 @end
 
 @implementation ExampleViewController {
+    
     UITableView *_tableView;
 
 }
@@ -29,26 +30,21 @@ DECL_ACTION_SEL(__performAction, UITableViewCell *, MACollectionViewCellSource*)
     [self.view addSubview:_tableView];
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
 
-    MACollectionViewDataSource *dataSource = [[MACollectionViewDataSource alloc] initWithTableView:_tableView interceptedTableViewDelegate:self];
-    MACollectionViewCellSource *cellSource = [MACollectionViewCellSource sourceWithIdentifier:@"cell"];
+    MAYCollectionViewDataSource *dataSource = [[MAYCollectionViewDataSource alloc] initWithTableView:_tableView interceptedTableViewDelegate:self];
+    MAYCollectionViewCellSource *cellSource = [MAYCollectionViewCellSource sourceWithIdentifier:@"cell"];
+    cellSource.data = @"hello miner";
     [cellSource setTarget:self configSelector:@selector(__configCustomCell:cellSource:)];
     [cellSource setTarget:self actionSelector:@selector(__performAction:cellSource:)];
     [dataSource addCellSource:@[cellSource]];
 
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)__configCustomCell:(UITableViewCell *)cell cellSource:(MAYCollectionViewCellSource *)cellSource {
+    cell.textLabel.text = cellSource.data;
 }
 
-- (void)__configCustomCell:(UITableViewCell *)cell cellSource:(MACollectionViewCellSource *)cellSource {
-    cell.textLabel.text = @"hello miner";
-}
-
-- (void)__performAction:(UITableViewCell *)cell cellSource:(MACollectionViewCellSource *)cellSource {
-    
-    NSLog(@"__performAction");
-    
+- (void)__performAction:(UITableViewCell *)cell cellSource:(MAYCollectionViewCellSource *)cellSource {
+    NSLog(@"%@",cellSource.data);
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {

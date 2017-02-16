@@ -1,6 +1,6 @@
 //
 //  main.m
-//  MACollectionViewDataSource
+//  MAYCollectionViewDataSource
 //
 //  Created by miner on 2017/2/14.
 //  Copyright © 2017年 miner. All rights reserved.
