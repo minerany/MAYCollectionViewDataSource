@@ -59,7 +59,7 @@
     if (cellSource.cellHeight) {
         return cellSource.cellHeight(indexPath, cellSource);
     }
-    return 60;
+    return tableView.rowHeight ? : 60;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
