@@ -152,10 +152,10 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
         if (cellSource.count > 0) {
             if (section < [self numberOfSections]) {
 
-                NSIndexSet *indecSet = [NSIndexSet indexSetWithIndex:section];
-                [_headerSource insertObjects:headerSource ? @[headerSource] : @[] atIndexes:indecSet];
-                [_cellSource insertObjects:cellSource.count > 0 ? cellSource : @[] atIndexes:indecSet];
-                [_footerSource insertObjects:footerSource ? @[footerSource] : @[] atIndexes:indecSet];
+                NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:section];
+                [_headerSource insertObjects:headerSource ? @[headerSource] : @[] atIndexes:indexSet];
+                [_cellSource insertObjects:cellSource.count > 0 ? cellSource : @[] atIndexes:indexSet];
+                [_footerSource insertObjects:footerSource ? @[footerSource] : @[] atIndexes:indexSet];
 
             } else {
                 [self addCellSource:cellSource headerSource:headerSource footerSource:footerSource];
@@ -375,10 +375,9 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
     }
 }
 
--(NSIndexPath *)indexPathForCellSource:(__kindof MAYCollectionViewCellSource *)cellSource
-{
+- (NSIndexPath *)indexPathForCellSource:(__kindof MAYCollectionViewCellSource *)cellSource {
     __block NSIndexPath *indexPath = nil;
-    [_cellSource enumerateObjectsUsingBlock:^(NSArray * _Nonnull cells, NSUInteger section, BOOL * _Nonnull stop) {
+    [[_cellSource copy] enumerateObjectsUsingBlock:^(NSArray *_Nonnull cells, NSUInteger section, BOOL *_Nonnull stop) {
         [cells enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger row, BOOL *_Nonnull canStop) {
             if ([obj isEqual:cellSource]) {
                 indexPath = [NSIndexPath indexPathForRow:row inSection:section];
@@ -398,10 +397,9 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
     }
 }
 
--(NSInteger)setionForHeaderSource:(__kindof MAYCollectionViewHeaderSource *)headerSource
-{
+- (NSInteger)setionForHeaderSource:(__kindof MAYCollectionViewHeaderSource *)headerSource {
     __block NSInteger result = NSNotFound;
-    [_headerSource enumerateObjectsUsingBlock:^(NSArray * _Nonnull sources, NSUInteger section, BOOL * _Nonnull stop) {
+    [[_headerSource copy] enumerateObjectsUsingBlock:^(NSArray *_Nonnull sources, NSUInteger section, BOOL *_Nonnull stop) {
         if ([sources containsObject:headerSource]) {
             result = section;
             *stop = YES;
@@ -418,10 +416,9 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
     }
 }
 
--(NSInteger)sectionForFooterSource:(__kindof MAYCollectionViewFooterSource *)footerSource
-{
+- (NSInteger)sectionForFooterSource:(__kindof MAYCollectionViewFooterSource *)footerSource {
     __block NSInteger result = NSNotFound;
-    [_footerSource enumerateObjectsUsingBlock:^(NSArray * _Nonnull sources, NSUInteger section, BOOL * _Nonnull stop) {
+    [[_footerSource copy] enumerateObjectsUsingBlock:^(NSArray *_Nonnull sources, NSUInteger section, BOOL *_Nonnull stop) {
         if ([sources containsObject:footerSource]) {
             result = section;
             *stop = YES;
