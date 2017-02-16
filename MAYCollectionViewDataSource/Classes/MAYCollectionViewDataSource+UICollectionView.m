@@ -59,6 +59,10 @@
     if (cellSource.cellSize) {
         return cellSource.cellSize(indexPath, cellSource);
     }
+    if ([collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]) {
+        UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *) collectionViewLayout;
+        return flowLayout.itemSize;
+    }
     return CGSizeMake(60, 60);
 }
 
