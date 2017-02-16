@@ -71,7 +71,7 @@ DECL_HANDLER(-(void) reloadSection:(NSArray<MAYCollectionViewCellSource *> *)cel
 
 - (__kindof MAYCollectionViewHeaderSource *)headerSourceInSection:(NSInteger)section;
 
-- (NSInteger)setionForHeaderSource:(__kindof MAYCollectionViewHeaderSource *)headerSource;
+- (NSInteger)sectionForHeaderSource:(__kindof MAYCollectionViewHeaderSource *)headerSource;
 
 - (__kindof MAYCollectionViewFooterSource *)footerSourceInSection:(NSInteger)section;
 

@@ -397,7 +397,7 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
     }
 }
 
-- (NSInteger)setionForHeaderSource:(__kindof MAYCollectionViewHeaderSource *)headerSource {
+- (NSInteger)sectionForHeaderSource:(__kindof MAYCollectionViewHeaderSource *)headerSource {
     __block NSInteger result = NSNotFound;
     [[_headerSource copy] enumerateObjectsUsingBlock:^(NSArray *_Nonnull sources, NSUInteger section, BOOL *_Nonnull stop) {
         if ([sources containsObject:headerSource]) {
