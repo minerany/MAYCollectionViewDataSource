@@ -217,6 +217,7 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
                     }
                 }];
                 [mArrayCellSource removeObjectsInArray:deleteObjs];
+                _cellSource[section] = mArrayCellSource;
                 if ([self __needDeleteSection:section]) {
                     [self deleteSection:section updateHandler:nil];
                 }
