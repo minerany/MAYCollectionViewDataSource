@@ -45,6 +45,8 @@ DECL_HANDLER(-(void) deleteFooterInSection:(NSInteger)section)
 /// delete all section elements source
 DECL_HANDLER(-(void) deleteSection:(NSInteger)section)
 
+- (void)deleteAllSources;
+
 DECL_HANDLER(-(void) reloadHeader:(MAYCollectionViewHeaderSource *)headerSource inSection:(NSInteger)section)
 
 DECL_HANDLER(-(void) reloadCellSource:(MAYCollectionViewCellSource *)cellSource atIndexPath:(NSIndexPath *)indexPath)

@@ -248,6 +248,14 @@ dispatch_barrier_async(_dataSourceSerialQueue, ^{\
     });
 }
 
+- (void)deleteAllSources {
+    dispatch_dataSource_serialQueue(^{
+        [_headerSource removeAllObjects];
+        [_cellSource removeAllObjects];
+        [_footerSource removeAllObjects];
+    });
+}
+
 #pragma mark - reload
 
 - (void)reloadHeader:(MAYCollectionViewHeaderSource *)headerSource inSection:(NSInteger)section updateHandler:(void (^)())handler {
