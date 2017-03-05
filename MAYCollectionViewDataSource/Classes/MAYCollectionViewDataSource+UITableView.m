@@ -109,7 +109,7 @@ MAYSynthesize(weak, id < UITableViewDelegate >, interceptedTableViewDelegate, se
     if (headerSource.headerHeight) {
         return headerSource.headerHeight(section, headerSource);
     }
-    return 0;
+    return CGFLOAT_MIN;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -124,7 +124,7 @@ MAYSynthesize(weak, id < UITableViewDelegate >, interceptedTableViewDelegate, se
     if (footerSource.footerHeight) {
         return footerSource.footerHeight(section, footerSource);
     }
-    return 0;
+    return CGFLOAT_MIN;
 }
 
 @end
