@@ -15,16 +15,9 @@
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
 
-/// view isKindOfClass UITableView or UICollectionView
-- (instancetype)initWithView:(__kindof UIView *)view NS_DESIGNATED_INITIALIZER;
-
-- (instancetype)init NS_UNAVAILABLE;
-
-+ (instancetype)new NS_UNAVAILABLE;
-
 @end
 
-#define DECL_HANDLER(signature) signature updateHandler:(void(^)(__kindof UIView *view))handler;
+#define DECL_HANDLER(signature) signature updateHandler:(void(^)())handler;
 
 @interface MAYCollectionViewDataSource (SourceMaker)
 

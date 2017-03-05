@@ -31,21 +31,8 @@ dispatch_barrier_async(_dataSourceSerialQueue, ^{\
     dispatch_main_sync_safe(block);\
 })
 
-@interface UIView (DataSource)
-
-@property(nonatomic, strong) MAYCollectionViewDataSource *may_dataSource;
-
-@end
-
-@implementation UIView (DataSource)
-
-MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_dataSource);
-
-@end
-
 @interface MAYCollectionViewDataSource ()
 
-@property(nonatomic, weak) UIView *collectionView;
 @property(nonatomic, strong) NSMutableArray<NSArray *> *headerSource;
 @property(nonatomic, strong) NSMutableArray<NSArray *> *cellSource;
 @property(nonatomic, strong) NSMutableArray<NSArray *> *footerSource;
@@ -56,7 +43,7 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
     dispatch_queue_t _dataSourceSerialQueue;
 }
 
-- (instancetype)initWithView:(__kindof UIView *)view {
+- (instancetype)init {
     self = [super init];
     if (self) {
 
@@ -64,19 +51,6 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
         _cellSource = [NSMutableArray array];
         _footerSource = [NSMutableArray array];
         _dataSourceSerialQueue = dispatch_queue_create("com.uwozai.collectionViewDataSource", DISPATCH_QUEUE_SERIAL);
-
-        self.collectionView = view;
-        view.may_dataSource = self;
-
-        if ([view isKindOfClass:[UITableView class]]) {
-            UITableView *tableView = view;
-            tableView.dataSource = self;
-            tableView.delegate = self;
-        } else if ([view isKindOfClass:[UICollectionView class]]) {
-            UICollectionView *collectionView = view;
-            collectionView.dataSource = self;
-            collectionView.delegate = self;
-        }
 
     }
     return self;
@@ -124,7 +98,7 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
 
 #pragma mark - insert
 
-- (void)insertCellSource:(NSArray<MAYCollectionViewCellSource *> *)cellSource atIndexPath:(NSIndexPath *)indexPath updateHandler:(void (^)(__kindof UIView *))handler {
+- (void)insertCellSource:(NSArray<MAYCollectionViewCellSource *> *)cellSource atIndexPath:(NSIndexPath *)indexPath updateHandler:(void (^)())handler {
     dispatch_dataSource_serialQueue(^{
         if (cellSource.count > 0) {
             if (indexPath.section < [self numberOfSections]) {
@@ -140,14 +114,14 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
             }
             if (handler) {
                 dispatch_barrier_dataSource_serialQueue(^{
-                    handler(self.collectionView);
+                    handler();
                 });
             }
         }
     });
 }
 
-- (void)insertCellSource:(NSArray<MAYCollectionViewCellSource *> *)cellSource headerSource:(MAYCollectionViewHeaderSource *)headerSource footerSource:(MAYCollectionViewFooterSource *)footerSource inSection:(NSInteger)section updateHandler:(void (^)(__kindof UIView *))handler {
+- (void)insertCellSource:(NSArray<MAYCollectionViewCellSource *> *)cellSource headerSource:(MAYCollectionViewHeaderSource *)headerSource footerSource:(MAYCollectionViewFooterSource *)footerSource inSection:(NSInteger)section updateHandler:(void (^)())handler {
     dispatch_dataSource_serialQueue(^{
         if (cellSource.count > 0) {
             if (section < [self numberOfSections]) {
@@ -162,7 +136,7 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
             }
             if (handler) {
                 dispatch_barrier_dataSource_serialQueue(^{
-                    handler(self.collectionView);
+                    handler();
                 });
             }
         }
@@ -171,7 +145,7 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
 
 #pragma mark - delete
 
-- (void)deleteHeaderInSection:(NSInteger)section updateHandler:(void (^)(__kindof UIView *))handler {
+- (void)deleteHeaderInSection:(NSInteger)section updateHandler:(void (^)())handler {
     dispatch_dataSource_serialQueue(^{
 
         if (section < [self numberOfSections]) {
@@ -181,7 +155,7 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
             }
             if (handler) {
                 dispatch_barrier_dataSource_serialQueue(^{
-                    handler(self.collectionView);
+                    handler();
                 });
             }
         }
@@ -189,7 +163,7 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
     });
 }
 
-- (void)deleteCellSourceAtIndexPath:(NSArray<NSIndexPath *> *)indexPaths updateHandler:(void (^)(__kindof UIView *))handler {
+- (void)deleteCellSourceAtIndexPath:(NSArray<NSIndexPath *> *)indexPaths updateHandler:(void (^)())handler {
     dispatch_dataSource_serialQueue(^{
 
         if (indexPaths.count > 0) {
@@ -225,7 +199,7 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
 
             if (handler) {
                 dispatch_barrier_dataSource_serialQueue(^{
-                    handler(self.collectionView);
+                    handler();
                 });
             }
         }
@@ -234,7 +208,7 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
     });
 }
 
-- (void)deleteFooterInSection:(NSInteger)section updateHandler:(void (^)(__kindof UIView *))handler {
+- (void)deleteFooterInSection:(NSInteger)section updateHandler:(void (^)())handler {
     dispatch_dataSource_serialQueue(^{
 
         if (section < [self numberOfSections]) {
@@ -244,7 +218,7 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
             }
             if (handler) {
                 dispatch_barrier_dataSource_serialQueue(^{
-                    handler(self.collectionView);
+                    handler();
                 });
             }
         }
@@ -259,7 +233,7 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
     return NO;
 }
 
-- (void)deleteSection:(NSInteger)section updateHandler:(void (^)(__kindof UIView *))handler {
+- (void)deleteSection:(NSInteger)section updateHandler:(void (^)())handler {
     dispatch_dataSource_serialQueue(^{
         if (section < [self numberOfSections]) {
             [_headerSource removeObjectAtIndex:section];
@@ -267,7 +241,7 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
             [_footerSource removeObjectAtIndex:section];
             if (handler) {
                 dispatch_barrier_dataSource_serialQueue(^{
-                    handler(self.collectionView);
+                    handler();
                 });
             }
         }
@@ -276,7 +250,7 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
 
 #pragma mark - reload
 
-- (void)reloadHeader:(MAYCollectionViewHeaderSource *)headerSource inSection:(NSInteger)section updateHandler:(void (^)(__kindof UIView *))handler {
+- (void)reloadHeader:(MAYCollectionViewHeaderSource *)headerSource inSection:(NSInteger)section updateHandler:(void (^)())handler {
     dispatch_dataSource_serialQueue(^{
         if (section < [self numberOfSections]) {
 
@@ -284,14 +258,14 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
 
             if (handler) {
                 dispatch_barrier_dataSource_serialQueue(^{
-                    handler(self.collectionView);
+                    handler();
                 });
             }
         }
     });
 }
 
-- (void)reloadCellSource:(MAYCollectionViewCellSource *)cellSource atIndexPath:(NSIndexPath *)indexPath updateHandler:(void (^)(__kindof UIView *))handler {
+- (void)reloadCellSource:(MAYCollectionViewCellSource *)cellSource atIndexPath:(NSIndexPath *)indexPath updateHandler:(void (^)())handler {
     dispatch_dataSource_serialQueue(^{
 
         if (indexPath.section < [self numberOfSections] && indexPath.row < [self numberOfItemsInSection:indexPath.section]) {
@@ -302,14 +276,14 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
 
             if (handler) {
                 dispatch_barrier_dataSource_serialQueue(^{
-                    handler(self.collectionView);
+                    handler();
                 });
             }
         }
     });
 }
 
-- (void)reloadFooter:(MAYCollectionViewFooterSource *)footerSource inSection:(NSInteger)section updateHandler:(void (^)(__kindof UIView *))handler {
+- (void)reloadFooter:(MAYCollectionViewFooterSource *)footerSource inSection:(NSInteger)section updateHandler:(void (^)())handler {
     dispatch_dataSource_serialQueue(^{
         if (section < [self numberOfSections]) {
 
@@ -317,14 +291,14 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
 
             if (handler) {
                 dispatch_barrier_dataSource_serialQueue(^{
-                    handler(self.collectionView);
+                    handler();
                 });
             }
         }
     });
 }
 
-- (void)reloadSection:(NSArray<MAYCollectionViewCellSource *> *)cellSource headerSource:(MAYCollectionViewHeaderSource *)headerSource footerSource:(MAYCollectionViewFooterSource *)footerSource inSection:(NSInteger)section updateHandler:(void (^)(__kindof UIView *))handler {
+- (void)reloadSection:(NSArray<MAYCollectionViewCellSource *> *)cellSource headerSource:(MAYCollectionViewHeaderSource *)headerSource footerSource:(MAYCollectionViewFooterSource *)footerSource inSection:(NSInteger)section updateHandler:(void (^)())handler {
     dispatch_dataSource_serialQueue(^{
 
         if (section < [self numberOfSections]) {
@@ -335,14 +309,14 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
 
             if (handler) {
                 dispatch_barrier_dataSource_serialQueue(^{
-                    handler(self.collectionView);
+                    handler();
                 });
             }
         }
     });
 }
 
-- (void)performBatchUpdates:(void (^)(void))updates updateHandler:(void (^)(__kindof UIView *))handler {
+- (void)performBatchUpdates:(void (^)(void))updates updateHandler:(void (^)())handler {
     dispatch_dataSource_serialQueue(^{
 
         if (updates) {
@@ -351,7 +325,7 @@ MAYSynthesize(strong, MAYCollectionViewDataSource *, may_dataSource, setMay_data
 
         if (handler) {
             dispatch_barrier_dataSource_serialQueue(^{
-                handler(self.collectionView);
+                handler();
             });
         }
 

@@ -11,7 +11,12 @@
 
 @interface MAYCollectionViewDataSource (UITableView) <UITableViewDataSource, UITableViewDelegate>
 
-- (instancetype)initWithTableView:(UITableView *)tableView interceptedTableViewDelegate:(id <UITableViewDelegate>)delegate;
+@property(nonatomic, weak) id <UITableViewDataSource> interceptedTableViewDataSource;
+@property(nonatomic, weak) id <UITableViewDelegate> interceptedTableViewDelegate;
+
+- (void)attachTableView:(UITableView *)tableView;
+
+@property(nonatomic, weak, readonly) UITableView *attachedTableView;
 
 @end
 

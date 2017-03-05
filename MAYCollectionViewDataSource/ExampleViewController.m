@@ -18,7 +18,7 @@ DECL_ACTION_SEL(__performAction, UITableViewCell *, MAYCollectionViewCellSource*
 @end
 
 @implementation ExampleViewController {
-    
+
     UITableView *_tableView;
 
 }
@@ -30,13 +30,14 @@ DECL_ACTION_SEL(__performAction, UITableViewCell *, MAYCollectionViewCellSource*
     [self.view addSubview:_tableView];
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
 
-    MAYCollectionViewDataSource *dataSource = [[MAYCollectionViewDataSource alloc] initWithTableView:_tableView interceptedTableViewDelegate:self];
+    MAYCollectionViewDataSource *dataSource = [MAYCollectionViewDataSource new];
     MAYCollectionViewCellSource *cellSource = [MAYCollectionViewCellSource sourceWithIdentifier:@"cell"];
     cellSource.data = @"hello miner";
     [cellSource setTarget:self configSelector:@selector(__configCustomCell:cellSource:)];
     [cellSource setTarget:self actionSelector:@selector(__performAction:cellSource:)];
     [dataSource addCellSource:@[cellSource]];
 
+    [dataSource attachTableView:_tableView];
 }
 
 - (void)__configCustomCell:(UITableViewCell *)cell cellSource:(MAYCollectionViewCellSource *)cellSource {
@@ -44,7 +45,7 @@ DECL_ACTION_SEL(__performAction, UITableViewCell *, MAYCollectionViewCellSource*
 }
 
 - (void)__performAction:(UITableViewCell *)cell cellSource:(MAYCollectionViewCellSource *)cellSource {
-    NSLog(@"%@",cellSource.data);
+    NSLog(@"%@", cellSource.data);
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {

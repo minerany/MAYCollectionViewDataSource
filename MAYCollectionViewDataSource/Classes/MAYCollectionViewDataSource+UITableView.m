@@ -7,36 +7,66 @@
 //
 
 #import "MAYCollectionViewDataSource+UITableView.h"
+#import "UIView+MAYDataSource.h"
 #import "MAYCollectionViewProxy.h"
 #import "MAYUtilities.h"
 
 @interface UITableView (TableViewProxy)
 
-@property(nonatomic, strong) MAYCollectionViewProxy *may_tableViewProxy;
+@property(nonatomic, strong) MAYCollectionViewProxy *may_tableViewDelegateProxy;
+@property(nonatomic, strong) MAYCollectionViewProxy *may_tableViewDataSourceProxy;
 
 @end
 
 @implementation UITableView (TableViewProxy)
 
-- (void)setMay_tableViewProxy:(MAYCollectionViewProxy *)may_tableViewProxy {
-    self.delegate = (id <UITableViewDelegate>) may_tableViewProxy;
-    objc_setAssociatedObject(self, @selector(may_tableViewProxy), may_tableViewProxy, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setMay_tableViewDelegateProxy:(MAYCollectionViewProxy *)may_tableViewDelegateProxy {
+    self.delegate = (id <UITableViewDelegate>) may_tableViewDelegateProxy;
+    objc_setAssociatedObject(self, @selector(may_tableViewDelegateProxy), may_tableViewDelegateProxy, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (MAYCollectionViewProxy *)may_tableViewProxy {
-    return objc_getAssociatedObject(self, @selector(may_tableViewProxy));
+- (MAYCollectionViewProxy *)may_tableViewDelegateProxy {
+    return objc_getAssociatedObject(self, @selector(may_tableViewDelegateProxy));
 }
+
+- (void)setMay_tableViewDataSourceProxy:(MAYCollectionViewProxy *)may_tableViewDataSourceProxy {
+    self.dataSource = (id <UITableViewDataSource>) may_tableViewDataSourceProxy;
+    objc_setAssociatedObject(self, @selector(may_tableViewDataSourceProxy), may_tableViewDataSourceProxy, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (MAYCollectionViewProxy *)may_tableViewDataSourceProxy {
+    return objc_getAssociatedObject(self, @selector(may_tableViewDataSourceProxy));
+}
+
+@end
+
+@interface MAYCollectionViewDataSource ()
+
+@property(nonatomic, weak) UITableView *attachedTableView;
 
 @end
 
 @implementation MAYCollectionViewDataSource (UITableView)
 
-- (instancetype)initWithTableView:(UITableView *)tableView interceptedTableViewDelegate:(id <UITableViewDelegate>)delegate {
-    self = [self initWithView:tableView];
-    if (self && delegate) {
-        tableView.may_tableViewProxy = [MAYCollectionViewProxy proxyWithDelegates:@[delegate, self]];
+MAYSynthesize(weak, UITableView *, attachedTableView, setAttachedTableView)
+
+MAYSynthesize(weak, id < UITableViewDataSource >, interceptedTableViewDataSource, setInterceptedTableViewDataSource)
+
+MAYSynthesize(weak, id < UITableViewDelegate >, interceptedTableViewDelegate, setInterceptedTableViewDelegate)
+
+- (void)attachTableView:(UITableView *)tableView {
+    tableView.may_dataSource = self;
+    self.attachedTableView = tableView;
+    if (self.interceptedTableViewDelegate) {
+        tableView.may_tableViewDelegateProxy = [MAYCollectionViewProxy proxyWithDelegates:@[self.interceptedTableViewDelegate, self]];
+    } else {
+        tableView.delegate = self;
     }
-    return self;
+    if (self.interceptedTableViewDataSource) {
+        tableView.may_tableViewDataSourceProxy = [MAYCollectionViewProxy proxyWithDelegates:@[self.interceptedTableViewDataSource, self]];
+    } else {
+        tableView.dataSource = self;
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

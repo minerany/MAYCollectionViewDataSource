@@ -8,35 +8,65 @@
 
 #import "MAYCollectionViewDataSource+UICollectionView.h"
 #import "MAYCollectionViewProxy.h"
+#import "UIView+MAYDataSource.h"
 #import "MAYUtilities.h"
 
 @interface UICollectionView (CollectionViewProxy)
 
-@property(nonatomic, strong) MAYCollectionViewProxy *may_collectionViewProxy;
+@property(nonatomic, strong) MAYCollectionViewProxy *may_collectionViewDataSourceProxy;
+@property(nonatomic, strong) MAYCollectionViewProxy *may_collectionViewDelegateProxy;
 
 @end
 
 @implementation UICollectionView (CollectionViewProxy)
 
-- (void)setMay_collectionViewProxy:(MAYCollectionViewProxy *)may_collectionViewProxy {
-    self.delegate = (id <UICollectionViewDelegate>) may_collectionViewProxy;
-    objc_setAssociatedObject(self, @selector(may_collectionViewProxy), may_collectionViewProxy, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setMay_collectionViewDataSourceProxy:(MAYCollectionViewProxy *)may_collectionViewDataSourceProxy {
+    self.dataSource = (id <UICollectionViewDataSource>) may_collectionViewDataSourceProxy;
+    objc_setAssociatedObject(self, @selector(may_collectionViewDataSourceProxy), may_collectionViewDataSourceProxy, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (MAYCollectionViewProxy *)may_collectionViewProxy {
-    return objc_getAssociatedObject(self, @selector(may_collectionViewProxy));
+- (MAYCollectionViewProxy *)may_collectionViewDataSourceProxy {
+    return objc_getAssociatedObject(self, @selector(may_collectionViewDataSourceProxy));
 }
+
+- (void)setMay_collectionViewDelegateProxy:(MAYCollectionViewProxy *)may_collectionViewDelegateProxy {
+    self.delegate = (id <UICollectionViewDelegate>) may_collectionViewDelegateProxy;
+    objc_setAssociatedObject(self, @selector(may_collectionViewDelegateProxy), may_collectionViewDelegateProxy, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (MAYCollectionViewProxy *)may_collectionViewDelegateProxy {
+    return objc_getAssociatedObject(self, @selector(may_collectionViewDelegateProxy));
+}
+
+@end
+
+@interface MAYCollectionViewDataSource ()
+
+@property(nonatomic, weak) UICollectionView *attachedCollectionView;
 
 @end
 
 @implementation MAYCollectionViewDataSource (UICollectionView)
 
-- (instancetype)initWithCollectionView:(UICollectionView *)collectionView interceptedCollectionViewDelegate:(id <UICollectionViewDelegate>)delegate {
-    self = [self initWithView:collectionView];
-    if (self && delegate) {
-        collectionView.may_collectionViewProxy = [MAYCollectionViewProxy proxyWithDelegates:@[delegate, self]];
+MAYSynthesize(weak, UICollectionView *, attachedCollectionView, setAttachedCollectionView)
+
+MAYSynthesize(weak, id < UICollectionViewDataSource >, interceptedCollectionViewDataSource, setInterceptedCollectionViewDataSource)
+
+MAYSynthesize(weak, id < UICollectionViewDelegate >, interceptedCollectionViewDelegate, setInterceptedCollectionViewDelegate)
+
+- (void)attachCollectionView:(UICollectionView *)collectionView {
+    collectionView.may_dataSource = self;
+    self.attachedCollectionView = collectionView;
+    if (self.interceptedCollectionViewDelegate) {
+        collectionView.may_collectionViewDelegateProxy = [MAYCollectionViewProxy proxyWithDelegates:@[self.interceptedCollectionViewDelegate, self]];
+    } else {
+        collectionView.delegate = self;
     }
-    return self;
+    if (self.interceptedCollectionViewDataSource) {
+        collectionView.may_collectionViewDataSourceProxy = [MAYCollectionViewProxy proxyWithDelegates:@[self.interceptedCollectionViewDataSource, self]];
+    } else {
+        collectionView.dataSource = self;
+    }
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A21BAF91E54299700ADC2E3 /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A21BAF81E54299700ADC2E3 /* ExampleViewController.m */; };
+		2A9141891E6BF56700788476 /* UIView+MAYDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9141881E6BF56700788476 /* UIView+MAYDataSource.m */; };
 		2AA26CEB1E52E6EB004D78EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA26CEA1E52E6EB004D78EF /* main.m */; };
 		2AA26CEE1E52E6EB004D78EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA26CED1E52E6EB004D78EF /* AppDelegate.m */; };
 		2AA26CF41E52E6EB004D78EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA26CF21E52E6EB004D78EF /* Main.storyboard */; };
@@ -24,6 +25,8 @@
 /* Begin PBXFileReference section */
 		2A21BAF71E54299700ADC2E3 /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
 		2A21BAF81E54299700ADC2E3 /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
+		2A9141871E6BF56700788476 /* UIView+MAYDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MAYDataSource.h"; sourceTree = "<group>"; };
+		2A9141881E6BF56700788476 /* UIView+MAYDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MAYDataSource.m"; sourceTree = "<group>"; };
 		2AA26CE61E52E6EB004D78EF /* MAYCollectionViewDataSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MAYCollectionViewDataSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA26CEA1E52E6EB004D78EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2AA26CEC1E52E6EB004D78EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -113,6 +116,8 @@
 				6316645847E0D372E21933BC /* MAYCollectionViewProxy.m */,
 				631665E926F0950CE8D4F863 /* MAYUtilities.h */,
 				63166067BBBA7BEA2B684F4D /* MAYUtilities.m */,
+				2A9141871E6BF56700788476 /* UIView+MAYDataSource.h */,
+				2A9141881E6BF56700788476 /* UIView+MAYDataSource.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 				63166CF4FE32C8A0145AC33A /* MAYCollectionViewDataSource+UITableView.m in Sources */,
 				63166A659A8891E2588F8DAE /* MAYCollectionViewProxy.m in Sources */,
 				63166AD6F74FB261947BCF8D /* MAYCollectionViewDataSource.m in Sources */,
+				2A9141891E6BF56700788476 /* UIView+MAYDataSource.m in Sources */,
 				63166BCE1E43FF46F6A0DEA6 /* MAYCollectionViewItemSource.m in Sources */,
 				631666CA263F67273643B197 /* MAYUtilities.m in Sources */,
 			);

@@ -10,7 +10,12 @@
 
 @interface MAYCollectionViewDataSource (UICollectionView) <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
-- (instancetype)initWithCollectionView:(UICollectionView *)collectionView interceptedCollectionViewDelegate:(id <UICollectionViewDelegate>)delegate;
+@property(nonatomic, weak) id <UICollectionViewDataSource> interceptedCollectionViewDataSource;
+@property(nonatomic, weak) id <UICollectionViewDelegate> interceptedCollectionViewDelegate;
+
+- (void)attachCollectionView:(UICollectionView *)collectionView;
+
+@property(nonatomic, weak, readonly) UICollectionView *attachedCollectionView;
 
 @end
 
