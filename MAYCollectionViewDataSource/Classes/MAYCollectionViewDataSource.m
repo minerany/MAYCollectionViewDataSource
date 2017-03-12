@@ -351,7 +351,7 @@ dispatch_barrier_async(_dataSourceSerialQueue, ^{\
 }
 
 - (NSArray<MAYCollectionViewCellSource *> *)cellSourcesInSection:(NSInteger)section {
-    if (section < [self numberOfSections]) {
+    if (section < _cellSource.count) {
         return _cellSource[section];
     } else {
         return nil;
@@ -373,7 +373,7 @@ dispatch_barrier_async(_dataSourceSerialQueue, ^{\
 }
 
 - (MAYCollectionViewHeaderSource *)headerSourceInSection:(NSInteger)section {
-    if (section < [self numberOfSections] && _headerSource[section].count > 0) {
+    if (section < _headerSource.count && _headerSource[section].count > 0) {
         return _headerSource[section].firstObject;
     } else {
         return nil;
@@ -392,7 +392,7 @@ dispatch_barrier_async(_dataSourceSerialQueue, ^{\
 }
 
 - (MAYCollectionViewFooterSource *)footerSourceInSection:(NSInteger)section {
-    if (section < [self numberOfSections] && _footerSource[section].count > 0) {
+    if (section < _footerSource.count && _footerSource[section].count > 0) {
         return _footerSource[section].firstObject;
     } else {
         return nil;
