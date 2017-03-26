@@ -49,5 +49,5 @@ MAYCollectionViewDataSource also support self-sizing TableViewCell, if you set
 
 	tableView.rowHeight = UITableViewCellAutomaticHeight;
     
-More Detail you can see in ExampleViewController……
+More Detail you can see in ExampleViewController…
     
