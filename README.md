@@ -6,7 +6,7 @@
 
 # Usage
 
-For example create UITableView datasource
+For example create UITableView dataSource
 
 Import header file:
 
