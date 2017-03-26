@@ -22,7 +22,7 @@ Create a MAYCollectionViewDataSource instance and configure it:
     [dataSource addCellSource:@[cellSource]];
     
     
-Use DECL_CONFIG_SEL and DECL_ACTION_SEL declare configSelector and actionSelector in interface extension
+Use MAYDeclareConfigCellSelector and MAYDeclareCellActionSelector declare configSelector and actionSelector in interface extension
 
     MAYDeclareConfigCellSelector(__configCustomCell, UITableViewCell *, MAYCollectionViewCellSource*)
     MAYDeclareCellActionSelector(__performAction, UITableViewCell *, MAYCollectionViewCellSource*)
