@@ -1,16 +1,16 @@
 # MAYCollectionViewDataSource
 
-#Installation
+# Installation
 
 	pod 'MAYCollectionViewDataSource', :git => 'https://github.com/minerany/MAYCollectionViewDataSource.git'
 
-#Usage
+# Usage
 
 For example create UITableView datasource
 
 Import header file:
 
-`#import "MAYCollectionViewDataSource+UITableView.h"`
+	#import "MAYCollectionViewDataSource+UITableView.h"
 
 Create a MAYCollectionViewDataSource instance and configure it:
 	  
@@ -41,13 +41,13 @@ And UITableView dataSource configuration done!
 
 If you want to implement UITableView scrollviewDidScroll delegate method, you can set 
 
-    dataSource.interceptedTableViewDelegate = self;
+	dataSource.interceptedTableViewDelegate = self;
     
 In this delegate, you can implemente UITableViewDelegate delegate method that you want.
 
 MAYCollectionViewDataSource also support self-sizing TableViewCell, if you set
 
-    tableView.rowHeight = UITableViewCellAutomaticHeight;
+	tableView.rowHeight = UITableViewCellAutomaticHeight;
     
 More Detail you can see in ExampleViewController
     
