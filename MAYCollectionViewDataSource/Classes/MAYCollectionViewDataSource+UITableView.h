@@ -9,6 +9,8 @@
 #import "MAYCollectionViewDataSource.h"
 #import "MAYCollectionViewItemSource.h"
 
+UIKIT_EXTERN const CGFloat UITableViewCellAutomaticHeight;
+
 @interface MAYCollectionViewDataSource (UITableView) <UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic, weak) id <UITableViewDataSource> interceptedTableViewDataSource;
@@ -22,19 +24,19 @@
 
 @interface MAYCollectionViewCellSource (UITableView)
 
-@property(nonatomic, copy) CGFloat (^cellHeight)(NSIndexPath *indexPath, __kindof MAYCollectionViewCellSource *source);
+@property(nonatomic, copy) CGFloat (^tableViewCellHeight)(NSIndexPath *indexPath, __kindof MAYCollectionViewCellSource *source);
 
 
 @end
 
 @interface MAYCollectionViewHeaderSource (UITableView)
 
-@property(nonatomic, copy) CGFloat (^headerHeight)(NSInteger section, __kindof MAYCollectionViewHeaderSource *source);
+@property(nonatomic, copy) CGFloat (^tableViewHeaderHeight)(NSInteger section, __kindof MAYCollectionViewHeaderSource *source);
 
 @end
 
 @interface MAYCollectionViewFooterSource (UITableView)
 
-@property(nonatomic, copy) CGFloat (^footerHeight)(NSInteger section, __kindof MAYCollectionViewFooterSource *source);
+@property(nonatomic, copy) CGFloat (^tableViewFooterHeight)(NSInteger section, __kindof MAYCollectionViewFooterSource *source);
 
 @end

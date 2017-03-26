@@ -59,6 +59,12 @@ _MAYSynthesizeKey_##getter, \
 [[MAYWeakObjectWrapper alloc] initWithWeakObject:getter], \
 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
+#define FLT_LESS_THAN(A, B) [[[NSDecimalNumber alloc] initWithDouble:(A)] compare:[[NSDecimalNumber alloc] initWithDouble:(B)]] == NSOrderedAscending
+#define FLT_GREATER_THAN(A, B) [[[NSDecimalNumber alloc] initWithDouble:(A)] compare:[[NSDecimalNumber alloc] initWithDouble:(B)]] == NSOrderedDescending
+#define FLT_EQUAL_TO(A, B) [[[NSDecimalNumber alloc] initWithDouble:(A)] compare:[[NSDecimalNumber alloc] initWithDouble:(B)]] == NSOrderedSame
+#define FLT_LESS_THAN_OR_EQUAL_TO(A, B) [[[NSDecimalNumber alloc] initWithDouble:(A)] compare:[[NSDecimalNumber alloc] initWithDouble:(B)]] != NSOrderedDescending
+#define FLT_GREATER_THAN_OR_EQUAL_TO(A, B) [[[NSDecimalNumber alloc] initWithDouble:(A)] compare:[[NSDecimalNumber alloc] initWithDouble:(B)]] != NSOrderedAscending
+
 @interface MAYWeakObjectWrapper : NSObject
 
 @property(nonatomic, weak, readonly) id weakObject;

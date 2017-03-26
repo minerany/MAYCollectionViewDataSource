@@ -50,23 +50,49 @@
 
 MAYSynthesize(weak, UICollectionView *, attachedCollectionView, setAttachedCollectionView)
 
-MAYSynthesize(weak, id < UICollectionViewDataSource >, interceptedCollectionViewDataSource, setInterceptedCollectionViewDataSource)
+- (void)setInterceptedCollectionViewDataSource:(id <UICollectionViewDataSource>)interceptedCollectionViewDataSource {
+    if (![self.interceptedCollectionViewDataSource isEqual:interceptedCollectionViewDataSource]) {
+        objc_setAssociatedObject(self, @selector(interceptedCollectionViewDataSource), interceptedCollectionViewDataSource, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self __setCollectionViewDataSource];
+    }
+}
 
-MAYSynthesize(weak, id < UICollectionViewDelegate >, interceptedCollectionViewDelegate, setInterceptedCollectionViewDelegate)
+- (id <UICollectionViewDataSource>)interceptedCollectionViewDataSource {
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setInterceptedCollectionViewDelegate:(id <UICollectionViewDelegate>)interceptedCollectionViewDelegate {
+    if (![self.interceptedCollectionViewDelegate isEqual:interceptedCollectionViewDelegate]) {
+        objc_setAssociatedObject(self, @selector(interceptedCollectionViewDelegate), interceptedCollectionViewDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self __setCollectionViewDelegate];
+    }
+}
+
+- (id <UICollectionViewDelegate>)interceptedCollectionViewDelegate {
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)__setCollectionViewDelegate {
+    if (self.interceptedCollectionViewDelegate) {
+        self.attachedCollectionView.may_collectionViewDelegateProxy = [MAYCollectionViewProxy proxyWithDelegates:@[self.interceptedCollectionViewDelegate, self]];
+    } else {
+        self.attachedCollectionView.delegate = self;
+    }
+}
+
+- (void)__setCollectionViewDataSource {
+    if (self.interceptedCollectionViewDataSource) {
+        self.attachedCollectionView.may_collectionViewDataSourceProxy = [MAYCollectionViewProxy proxyWithDelegates:@[self.interceptedCollectionViewDataSource, self]];
+    } else {
+        self.attachedCollectionView.dataSource = self;
+    }
+}
 
 - (void)attachCollectionView:(UICollectionView *)collectionView {
     collectionView.may_dataSource = self;
     self.attachedCollectionView = collectionView;
-    if (self.interceptedCollectionViewDelegate) {
-        collectionView.may_collectionViewDelegateProxy = [MAYCollectionViewProxy proxyWithDelegates:@[self.interceptedCollectionViewDelegate, self]];
-    } else {
-        collectionView.delegate = self;
-    }
-    if (self.interceptedCollectionViewDataSource) {
-        collectionView.may_collectionViewDataSourceProxy = [MAYCollectionViewProxy proxyWithDelegates:@[self.interceptedCollectionViewDataSource, self]];
-    } else {
-        collectionView.dataSource = self;
-    }
+    [self __setCollectionViewDelegate];
+    [self __setCollectionViewDataSource];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -86,8 +112,8 @@ MAYSynthesize(weak, id < UICollectionViewDelegate >, interceptedCollectionViewDe
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     MAYCollectionViewCellSource *cellSource = [self cellSourceAtIndexPath:indexPath];
-    if (cellSource.cellSize) {
-        return cellSource.cellSize(indexPath, cellSource);
+    if (cellSource.collectionViewCellSize) {
+        return cellSource.collectionViewCellSize(indexPath, cellSource);
     }
     if ([collectionViewLayout isKindOfClass:[UICollectionViewFlowLayout class]]) {
         UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *) collectionViewLayout;
@@ -122,16 +148,16 @@ MAYSynthesize(weak, id < UICollectionViewDelegate >, interceptedCollectionViewDe
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     MAYCollectionViewHeaderSource *headerSource = [self headerSourceInSection:section];
-    if (headerSource.headerSize) {
-        return headerSource.headerSize(section, headerSource);
+    if (headerSource.collectionViewHeaderSize) {
+        return headerSource.collectionViewHeaderSize(section, headerSource);
     }
     return CGSizeZero;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     MAYCollectionViewFooterSource *footerSource = [self footerSourceInSection:section];
-    if (footerSource.footerSize) {
-        return footerSource.footerSize(section, footerSource);
+    if (footerSource.collectionViewFooterSize) {
+        return footerSource.collectionViewFooterSize(section, footerSource);
     }
     return CGSizeZero;
 }
@@ -143,7 +169,7 @@ MAYSynthesize(weak, id < UICollectionViewDelegate >, interceptedCollectionViewDe
 MAYSynthesize(copy,
         CGSize(^)(NSIndexPath * indexPath,
         __kindof MAYCollectionViewCellSource *source),
-        cellSize, setCellSize);
+        collectionViewCellSize, setCollectionViewCellSize);
 
 @end
 
@@ -153,7 +179,7 @@ MAYSynthesize(copy,
         CGSize(^)(NSInteger
         section,
         __kindof MAYCollectionViewHeaderSource *source),
-        headerSize, setHeaderSize);
+        collectionViewHeaderSize, setCollectionViewHeaderSize);
 
 @end
 
@@ -163,6 +189,6 @@ MAYSynthesize(copy,
         CGSize(^)(NSInteger
         section,
         __kindof MAYCollectionViewFooterSource *source),
-        footerSize, setFooterSize);
+        collectionViewFooterSize, setCollectionViewFooterSize);
 
 @end

@@ -21,19 +21,18 @@
 
 @interface MAYCollectionViewCellSource (UICollectionView)
 
-@property(nonatomic, copy) CGSize (^cellSize)(NSIndexPath *indexPath, __kindof MAYCollectionViewCellSource *source);
-
+@property(nonatomic, copy) CGSize (^collectionViewCellSize)(NSIndexPath *indexPath, __kindof MAYCollectionViewCellSource *source);
 
 @end
 
 @interface MAYCollectionViewHeaderSource (UICollectionView)
 
-@property(nonatomic, copy) CGSize (^headerSize)(NSInteger section, __kindof MAYCollectionViewHeaderSource *source);
+@property(nonatomic, copy) CGSize (^collectionViewHeaderSize)(NSInteger section, __kindof MAYCollectionViewHeaderSource *source);
 
 @end
 
 @interface MAYCollectionViewFooterSource (UICollectionView)
 
-@property(nonatomic, copy) CGSize (^footerSize)(NSInteger section, __kindof MAYCollectionViewFooterSource *source);
+@property(nonatomic, copy) CGSize (^collectionViewFooterSize)(NSInteger section, __kindof MAYCollectionViewFooterSource *source);
 
 @end

@@ -8,10 +8,12 @@
 
 @import UIKit;
 
-#define DECL_CONFIG_SEL(signature, cellClass, cellSourceClass)\
-- (void)signature:(cellClass)cell cellSource:(cellSourceClass)cellSource;
+#define _DeclareSelector(signature, itemClass, param1, itemSourceClass, param2)\
+-(void)signature:(itemClass)param1 param2:(itemSourceClass)param2
 
-#define DECL_ACTION_SEL(signature, cellClass, cellSourceClass) DECL_CONFIG_SEL(signature, cellClass, cellSourceClass)
+#define MAYDeclareConfigCellSelector(signature, cellClass, cellSourceClass) _DeclareSelector(signature,cellClass,cell,cellSourceClass,cellSource);
+#define MAYDeclareCellActionSelector(signature, cellClass, cellSourceClass) _DeclareSelector(signature,cellClass,cell,cellSourceClass,cellSource);
+#define MAYDeclareConfigHeaderFooterSelector(signature, headerFooterClass, headerFooterSourceClass) _DeclareSelector(signature,headerFooterClass,headerFooterView,headerFooterSourceClass,headerFooterSource);
 
 @interface MAYCollectionViewItemSource : NSObject
 

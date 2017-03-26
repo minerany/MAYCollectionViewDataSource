@@ -8,15 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		2A21BAF91E54299700ADC2E3 /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A21BAF81E54299700ADC2E3 /* ExampleViewController.m */; };
-		2A9141891E6BF56700788476 /* UIView+MAYDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9141881E6BF56700788476 /* UIView+MAYDataSource.m */; };
+		2A28940C1E823EF600216CA1 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A28940B1E823EF600216CA1 /* CustomTableViewCell.m */; };
+		2A76BFB91E84C67D0032C56A /* MAYCollectionViewDataSource.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 2A76BFB81E84C67C0032C56A /* MAYCollectionViewDataSource.podspec */; };
 		2AA26CEB1E52E6EB004D78EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA26CEA1E52E6EB004D78EF /* main.m */; };
 		2AA26CEE1E52E6EB004D78EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA26CED1E52E6EB004D78EF /* AppDelegate.m */; };
 		2AA26CF41E52E6EB004D78EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA26CF21E52E6EB004D78EF /* Main.storyboard */; };
 		2AA26CF61E52E6EB004D78EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA26CF51E52E6EB004D78EF /* Assets.xcassets */; };
 		2AA26CF91E52E6EB004D78EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA26CF71E52E6EB004D78EF /* LaunchScreen.storyboard */; };
 		631664E37628AAB1AA182F27 /* MAYCollectionViewDataSource+UICollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 631669590D5AC6FE1C985354 /* MAYCollectionViewDataSource+UICollectionView.m */; };
-		631666CA263F67273643B197 /* MAYUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166067BBBA7BEA2B684F4D /* MAYUtilities.m */; };
-		63166A659A8891E2588F8DAE /* MAYCollectionViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6316645847E0D372E21933BC /* MAYCollectionViewProxy.m */; };
+		631665C5851A81847424ECD8 /* MAYCollectionViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166E33F9FE1B4A4884898A /* MAYCollectionViewProxy.m */; };
+		631665E0C0BBE9283D08C7FA /* UITableView+HeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166298C71E39AAFD91A531 /* UITableView+HeightCache.m */; };
+		631666261EE01E00FDA17A82 /* MAYUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166E8A93D19042B0530D69 /* MAYUtilities.m */; };
+		631668F019454FC42DCC2C1A /* MAYCellHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166A7C5F7B8539C729FD71 /* MAYCellHeightCache.m */; };
+		631669EA0E7E873A4E5E4847 /* UIView+MAYDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 631664476F87FC5AB232BC6C /* UIView+MAYDataSource.m */; };
 		63166AD6F74FB261947BCF8D /* MAYCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 631668AE9B95C5FCEB23D20D /* MAYCollectionViewDataSource.m */; };
 		63166BCE1E43FF46F6A0DEA6 /* MAYCollectionViewItemSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 63166C2029ABFBB6ADB5E0E7 /* MAYCollectionViewItemSource.m */; };
 		63166CF4FE32C8A0145AC33A /* MAYCollectionViewDataSource+UITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 631661F606018028190825C2 /* MAYCollectionViewDataSource+UITableView.m */; };
@@ -25,8 +29,9 @@
 /* Begin PBXFileReference section */
 		2A21BAF71E54299700ADC2E3 /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
 		2A21BAF81E54299700ADC2E3 /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
-		2A9141871E6BF56700788476 /* UIView+MAYDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MAYDataSource.h"; sourceTree = "<group>"; };
-		2A9141881E6BF56700788476 /* UIView+MAYDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MAYDataSource.m"; sourceTree = "<group>"; };
+		2A28940A1E823EF600216CA1 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		2A28940B1E823EF600216CA1 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		2A76BFB81E84C67C0032C56A /* MAYCollectionViewDataSource.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MAYCollectionViewDataSource.podspec; sourceTree = "<group>"; };
 		2AA26CE61E52E6EB004D78EF /* MAYCollectionViewDataSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MAYCollectionViewDataSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA26CEA1E52E6EB004D78EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2AA26CEC1E52E6EB004D78EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -35,18 +40,24 @@
 		2AA26CF51E52E6EB004D78EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AA26CF81E52E6EB004D78EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AA26CFA1E52E6EB004D78EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63166067BBBA7BEA2B684F4D /* MAYUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAYUtilities.m; sourceTree = "<group>"; };
 		631661D2F1A02CA8A65A6F9C /* MAYCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAYCollectionViewDataSource.h; sourceTree = "<group>"; };
 		631661F606018028190825C2 /* MAYCollectionViewDataSource+UITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MAYCollectionViewDataSource+UITableView.m"; sourceTree = "<group>"; };
-		6316645847E0D372E21933BC /* MAYCollectionViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAYCollectionViewProxy.m; sourceTree = "<group>"; };
+		6316620F6298A360F391E11F /* MAYCellHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAYCellHeightCache.h; sourceTree = "<group>"; };
+		63166298C71E39AAFD91A531 /* UITableView+HeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HeightCache.m"; sourceTree = "<group>"; };
+		631664476F87FC5AB232BC6C /* UIView+MAYDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MAYDataSource.m"; sourceTree = "<group>"; };
 		631665CF3B415352C9AD25AB /* MAYCollectionViewDataSource+UICollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MAYCollectionViewDataSource+UICollectionView.h"; sourceTree = "<group>"; };
-		631665E926F0950CE8D4F863 /* MAYUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAYUtilities.h; sourceTree = "<group>"; };
 		631666135AC8B583339F892C /* MAYCollectionViewItemSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAYCollectionViewItemSource.h; sourceTree = "<group>"; };
-		631666DE52CCA5F25AA6ECCF /* MAYCollectionViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAYCollectionViewProxy.h; sourceTree = "<group>"; };
+		631667D83560F7B064A3609E /* MAYCollectionViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAYCollectionViewProxy.h; sourceTree = "<group>"; };
 		631668AE9B95C5FCEB23D20D /* MAYCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAYCollectionViewDataSource.m; sourceTree = "<group>"; };
 		631669590D5AC6FE1C985354 /* MAYCollectionViewDataSource+UICollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MAYCollectionViewDataSource+UICollectionView.m"; sourceTree = "<group>"; };
+		63166A7C5F7B8539C729FD71 /* MAYCellHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAYCellHeightCache.m; sourceTree = "<group>"; };
 		63166AC50CE5E7173A7C6B2D /* MAYCollectionViewDataSource+UITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MAYCollectionViewDataSource+UITableView.h"; sourceTree = "<group>"; };
+		63166BA1E5EFFEBF135ADDDC /* MAYUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAYUtilities.h; sourceTree = "<group>"; };
 		63166C2029ABFBB6ADB5E0E7 /* MAYCollectionViewItemSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAYCollectionViewItemSource.m; sourceTree = "<group>"; };
+		63166CAA651C92C60FB7E461 /* UITableView+HeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HeightCache.h"; sourceTree = "<group>"; };
+		63166E33F9FE1B4A4884898A /* MAYCollectionViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAYCollectionViewProxy.m; sourceTree = "<group>"; };
+		63166E794F499255853A68CD /* UIView+MAYDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MAYDataSource.h"; sourceTree = "<group>"; };
+		63166E8A93D19042B0530D69 /* MAYUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAYUtilities.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +74,7 @@
 		2AA26CDD1E52E6EB004D78EF = {
 			isa = PBXGroup;
 			children = (
+				2A76BFB81E84C67C0032C56A /* MAYCollectionViewDataSource.podspec */,
 				2AA26CE81E52E6EB004D78EF /* MAYCollectionViewDataSource */,
 				2AA26CE71E52E6EB004D78EF /* Products */,
 			);
@@ -83,6 +95,8 @@
 				2AA26CED1E52E6EB004D78EF /* AppDelegate.m */,
 				2A21BAF71E54299700ADC2E3 /* ExampleViewController.h */,
 				2A21BAF81E54299700ADC2E3 /* ExampleViewController.m */,
+				2A28940A1E823EF600216CA1 /* CustomTableViewCell.h */,
+				2A28940B1E823EF600216CA1 /* CustomTableViewCell.m */,
 				2AA26CF21E52E6EB004D78EF /* Main.storyboard */,
 				2AA26CF51E52E6EB004D78EF /* Assets.xcassets */,
 				2AA26CF71E52E6EB004D78EF /* LaunchScreen.storyboard */,
@@ -112,14 +126,26 @@
 				631661F606018028190825C2 /* MAYCollectionViewDataSource+UITableView.m */,
 				631665CF3B415352C9AD25AB /* MAYCollectionViewDataSource+UICollectionView.h */,
 				631669590D5AC6FE1C985354 /* MAYCollectionViewDataSource+UICollectionView.m */,
-				631666DE52CCA5F25AA6ECCF /* MAYCollectionViewProxy.h */,
-				6316645847E0D372E21933BC /* MAYCollectionViewProxy.m */,
-				631665E926F0950CE8D4F863 /* MAYUtilities.h */,
-				63166067BBBA7BEA2B684F4D /* MAYUtilities.m */,
-				2A9141871E6BF56700788476 /* UIView+MAYDataSource.h */,
-				2A9141881E6BF56700788476 /* UIView+MAYDataSource.m */,
+				63166D73A64390854A9FA521 /* Private */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		63166D73A64390854A9FA521 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				631667D83560F7B064A3609E /* MAYCollectionViewProxy.h */,
+				63166E33F9FE1B4A4884898A /* MAYCollectionViewProxy.m */,
+				6316620F6298A360F391E11F /* MAYCellHeightCache.h */,
+				63166A7C5F7B8539C729FD71 /* MAYCellHeightCache.m */,
+				63166CAA651C92C60FB7E461 /* UITableView+HeightCache.h */,
+				63166298C71E39AAFD91A531 /* UITableView+HeightCache.m */,
+				63166E794F499255853A68CD /* UIView+MAYDataSource.h */,
+				631664476F87FC5AB232BC6C /* UIView+MAYDataSource.m */,
+				63166BA1E5EFFEBF135ADDDC /* MAYUtilities.h */,
+				63166E8A93D19042B0530D69 /* MAYUtilities.m */,
+			);
+			path = Private;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A76BFB91E84C67D0032C56A /* MAYCollectionViewDataSource.podspec in Resources */,
 				2AA26CF91E52E6EB004D78EF /* LaunchScreen.storyboard in Resources */,
 				2AA26CF61E52E6EB004D78EF /* Assets.xcassets in Resources */,
 				2AA26CF41E52E6EB004D78EF /* Main.storyboard in Resources */,
@@ -199,11 +226,14 @@
 				2AA26CEB1E52E6EB004D78EF /* main.m in Sources */,
 				631664E37628AAB1AA182F27 /* MAYCollectionViewDataSource+UICollectionView.m in Sources */,
 				63166CF4FE32C8A0145AC33A /* MAYCollectionViewDataSource+UITableView.m in Sources */,
-				63166A659A8891E2588F8DAE /* MAYCollectionViewProxy.m in Sources */,
+				2A28940C1E823EF600216CA1 /* CustomTableViewCell.m in Sources */,
 				63166AD6F74FB261947BCF8D /* MAYCollectionViewDataSource.m in Sources */,
-				2A9141891E6BF56700788476 /* UIView+MAYDataSource.m in Sources */,
 				63166BCE1E43FF46F6A0DEA6 /* MAYCollectionViewItemSource.m in Sources */,
-				631666CA263F67273643B197 /* MAYUtilities.m in Sources */,
+				631668F019454FC42DCC2C1A /* MAYCellHeightCache.m in Sources */,
+				631665E0C0BBE9283D08C7FA /* UITableView+HeightCache.m in Sources */,
+				631665C5851A81847424ECD8 /* MAYCollectionViewProxy.m in Sources */,
+				631669EA0E7E873A4E5E4847 /* UIView+MAYDataSource.m in Sources */,
+				631666261EE01E00FDA17A82 /* MAYUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +283,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -270,6 +301,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MODULEMAP_FILE = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -301,6 +333,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -312,6 +345,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MODULEMAP_FILE = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
