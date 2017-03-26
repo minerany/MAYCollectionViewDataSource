@@ -2,7 +2,7 @@
 
 #Installation
 
-    pod 'MAYCollectionViewDataSource', :git => 'https://github.com/minerany/MAYCollectionViewDataSource.git'
+`pod 'MAYCollectionViewDataSource', :git => 'https://github.com/minerany/MAYCollectionViewDataSource.git'`
 
 #Usage
 
