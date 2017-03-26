@@ -15,14 +15,14 @@ Import header file:
 Create a MAYCollectionViewDataSource instance and configure it:
 	  
     MAYCollectionViewDataSource *dataSource = [MAYCollectionViewDataSource new];
-    MAYCollectionViewCellSource *cellSource = [MAYCollectionViewCellSource sourceWithIdentifier:@"cell"];
+    MAYCollectionViewCellSource *cellSource = [MAYCollectionViewCellSource sourceWithIdentifier:@"cell"];
     cellSource.data = @" hello miner";
     [cellSource setTarget:self configSelector:@selector(__configCustomCell:cellSource:)];
     [cellSource setTarget:self actionSelector:@selector(__performAction:cellSource:)];
     [dataSource addCellSource:@[cellSource]];
     
     
-Use MAYDeclareConfigCellSelector and MAYDeclareCellActionSelector declare configSelector and actionSelector in interface extension
+Use `MAYDeclareConfigCellSelector` and `MAYDeclareCellActionSelector` declare configSelector and actionSelector in interface extension
 
     MAYDeclareConfigCellSelector(__configCustomCell, UITableViewCell *, MAYCollectionViewCellSource*)
     MAYDeclareCellActionSelector(__performAction, UITableViewCell *, MAYCollectionViewCellSource*)
