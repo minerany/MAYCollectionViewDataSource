@@ -2,7 +2,7 @@
 
 #Installation
 
-`pod 'MAYCollectionViewDataSource'`
+    pod 'MAYCollectionViewDataSource', :git => 'https://github.com/minerany/MAYCollectionViewDataSource.git'
 
 #Usage
 
@@ -14,9 +14,9 @@ Import header file:
 
 Create a MAYCollectionViewDataSource instance and configure it:
 	  
-    MAYCollectionViewDataSource *dataSource = [[MAYCollectionViewDataSource alloc] initWithView:_tableView];
-    MAYCollectionViewCellSource *cellSource = [MAYCollectionViewCellSource sourceWithIdentifier:@"cell"];
-    cellSource.data = @"hello miner";
+    MAYCollectionViewDataSource *dataSource = [MAYCollectionViewDataSource new];
+    MAYCollectionViewCellSource *cellSource = [MAYCollectionViewCellSource sourceWithIdentifier:@"cell"];
+    cellSource.data = @" hello miner";
     [cellSource setTarget:self configSelector:@selector(__configCustomCell:cellSource:)];
     [cellSource setTarget:self actionSelector:@selector(__performAction:cellSource:)];
     [dataSource addCellSource:@[cellSource]];
@@ -24,8 +24,8 @@ Create a MAYCollectionViewDataSource instance and configure it:
     
 Use DECL_CONFIG_SEL and DECL_ACTION_SEL declare configSelector and actionSelector in interface extension
 
-    DECL_CONFIG_SEL(__configCustomCell, UITableViewCell *, MAYCollectionViewCellSource*)
-    DECL_ACTION_SEL(__performAction, UITableViewCell *, MAYCollectionViewCellSource*)
+    MAYDeclareConfigCellSelector(__configCustomCell, UITableViewCell *, MAYCollectionViewCellSource*)
+    MAYDeclareCellActionSelector(__performAction, UITableViewCell *, MAYCollectionViewCellSource*)
     
 Then implementation config and action method
     
@@ -37,13 +37,17 @@ Then implementation config and action method
       NSLog(@"%@",cellSource.data);
     }
    
-And UITableView datasource configuration done!
+And UITableView dataSource configuration done!
 
-If you want to implemente UITableView scrollviewDidScroll delegate method, you can use 
+If you want to implement UITableView scrollviewDidScroll delegate method, you can set 
 
-    - (instancetype)initWithTableView:(UITableView *)tableView interceptedTableViewDelegate:(id <UITableViewDelegate>)delegate;
+    dataSource.interceptedTableViewDelegate = self;
     
 In this delegate, you can implemente UITableViewDelegate delegate method that you want.
 
+MAYCollectionViewDataSource also support self-sizing TableViewCell, if you set
+
+    tableView.rowHeight = UITableViewCellAutomaticHeight;
+    
 More Detail you can see in ExampleViewController
     
