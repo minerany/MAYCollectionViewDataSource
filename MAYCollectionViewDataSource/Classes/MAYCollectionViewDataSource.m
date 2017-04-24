@@ -104,7 +104,7 @@ dispatch_barrier_async(_dataSourceSerialQueue, ^{\
             if (indexPath.section < [self numberOfSections]) {
                 NSMutableArray *rawCell = [[NSMutableArray alloc] initWithArray:[self cellSourcesInSection:indexPath.section] ?: @[]];
                 if (indexPath.row < rawCell.count) {
-                    [rawCell insertObjects:cellSource atIndexes:[NSIndexSet indexSetWithIndex:indexPath.row]];
+                    [rawCell insertObject:cellSource atIndex:indexPath.row];
                 } else {
                     [rawCell addObjectsFromArray:cellSource];
                 }
@@ -126,10 +126,9 @@ dispatch_barrier_async(_dataSourceSerialQueue, ^{\
         if (cellSource.count > 0) {
             if (section < [self numberOfSections]) {
 
-                NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:section];
-                [_headerSource insertObjects:headerSource ? @[headerSource] : @[] atIndexes:indexSet];
-                [_cellSource insertObjects:cellSource.count > 0 ? cellSource : @[] atIndexes:indexSet];
-                [_footerSource insertObjects:footerSource ? @[footerSource] : @[] atIndexes:indexSet];
+                [_headerSource insertObject:headerSource ? @[headerSource] : @[] atIndex:section];
+                [_cellSource insertObject:cellSource.count > 0 ? cellSource : @[] atIndex:section];
+                [_footerSource insertObject:footerSource ? @[footerSource] : @[] atIndex:section];
 
             } else {
                 [self addCellSource:cellSource headerSource:headerSource footerSource:footerSource];
