@@ -104,7 +104,7 @@ dispatch_barrier_async(_dataSourceSerialQueue, ^{\
             if (indexPath.section < [self numberOfSections]) {
                 NSMutableArray *rawCell = [[NSMutableArray alloc] initWithArray:[self cellSourcesInSection:indexPath.section] ?: @[]];
                 if (indexPath.row < rawCell.count) {
-                    [rawCell insertObject:cellSource atIndex:indexPath.row];
+                    [rawCell insertObjects:cellSource atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(indexPath.row, cellSource.count)]];
                 } else {
                     [rawCell addObjectsFromArray:cellSource];
                 }
